@@ -2,22 +2,27 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>User Profiles</title>
     <style>
-        h1{
+        h1 {
             color: blue;
             font-weight: bold;
             text-align: center;
         }
+
         .card {
             border: 1px solid red;
             padding: 20px;
             margin: 20px 0;
             border-radius: 8px;
-            
+        }
+
+        .toggle-btn {
+            margin-top: 10px;
+            padding: 5px 10px;
         }
     </style>
 </head>
@@ -25,8 +30,8 @@
 <body>
     <h1>User Profiles</h1>
     <div id="container"></div>
+    <div class="paragraph"></div>
 
-    
     <script>
         const users = [
             {
@@ -52,17 +57,44 @@
 
             const email = document.createElement("p");
             email.textContent = `Email: ${user.email}`;
+            email.className = "email";
 
             const bio = document.createElement("p");
             bio.textContent = user.bio;
 
+            const button = document.createElement("button");
+            button.textContent = "Hide Email";
+            button.className = "toggle-btn";
+
+            
+
+            button.addEventListener("click", () => {
+                if (email.style.display === "none") {
+                    email.style.display = "block";
+                    button.textContent = "Hide Email";
+                } else {
+                    email.style.display = "none";
+                    button.textContent = "Show Email";
+                }
+            });
+
+            
+
+
             card.appendChild(name);
             card.appendChild(email);
+            card.appendChild(button);
+            
+
             card.appendChild(bio);
 
             container.appendChild(card);
         });
+
+       
     </script>
 </body>
 
 </html>
+
+

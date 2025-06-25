@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profiles</title>
+    <style>
+        h1{
+            color: blue;
+            font-weight: bold;
+            text-align: center;
+        }
+        .card {
+            border: 1px solid red;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <h1>User Profiles</h1>
+    <div id="container"></div>
+
+    
+    <script>
+        const users = [
+            {
+                name: "Alice Johnson",
+                email: "alice@example.com",
+                bio: "Frontend developer with a love for UI/UX design."
+            },
+            {
+                name: "Bob Smith",
+                email: "bob@example.com",
+                bio: "Backend engineer and database expert."
+            }
+        ];
+
+        const container = document.getElementById("container");
+
+        users.forEach(user => {
+            const card = document.createElement("div");
+            card.className = "card";
+
+            const name = document.createElement("h2");
+            name.textContent = user.name;
+
+            const email = document.createElement("p");
+            email.textContent = `Email: ${user.email}`;
+
+            const bio = document.createElement("p");
+            bio.textContent = user.bio;
+
+            card.appendChild(name);
+            card.appendChild(email);
+            card.appendChild(bio);
+
+            container.appendChild(card);
+        });
+    </script>
+</body>
+
+</html>
